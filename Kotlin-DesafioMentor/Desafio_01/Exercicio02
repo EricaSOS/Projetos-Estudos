@@ -85,3 +85,7 @@ fun calcularTempoAposentaria(): String{
     }
     return mensagem
 }
+
+fun main () {
+    println(calcularTempoAposentaria())
+}
