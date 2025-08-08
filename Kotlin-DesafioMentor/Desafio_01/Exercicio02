@@ -14,16 +14,17 @@ Exemplos de retorno:
 "Voce ja esta elegivel a aposentadoria faz 3 anos."
 */
 
-fun validarSexo(): String{
+fun validarSexo(): String?{
     print("Insira seu sexo: ")
-    var sexoUsuario = readLine().toString().trim().lowercase()
+    var sexoDigitado = readLine().toString().trim().lowercase()
 
-    if((sexoUsuario == "f") || (sexoUsuario == "fem") || (sexoUsuario == "feminino")){
-        return "feminino"
-    } else if((sexoUsuario == "m") || (sexoUsuario == "masc") || (sexoUsuario == "masculino")) {
-        return "masculino"
-    } else {
-        return "Informação inválida."
+    return when (sexoDigitado) {
+        "f", "fem", "feminino" -> "feminino"
+        "m", "masc", "masculino" -> "masculino"
+        else -> {
+            println("Informação inválida.")
+            null
+        }
     }
 }
 
