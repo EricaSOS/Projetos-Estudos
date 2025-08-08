@@ -11,10 +11,21 @@ Ao final, mostre o valor lido e a relacao de notas necessarias. Exemplo de retor
 1 nota(s) de R$ 1,00
 * */
 
-fun contadorCedulas(){
+fun validarValorDigitado(): Int? {
     print("Digite um valor inteiro: ")
-    val valorUsuario = readLine().toString()
-    var valorDecomposto = valorUsuario.toInt()
+    val valorDigitado = readLine().toString().trim()
+    val valorUsuario = valorDigitado.toIntOrNull()
+    return if (valorUsuario != null && valorUsuario >= 0) {
+        valorUsuario
+    } else {
+        println("Dado inválido.")
+        null
+    }
+}
+
+fun contadorCedulas(){
+    val valorUsuario = validarValorDigitado()
+    var valorDecomposto = valorUsuario
     
        val qtdeCedula100 = (valorDecomposto / 100)
         valorDecomposto = valorDecomposto % 100
