@@ -58,7 +58,7 @@ fun calcularTempoHomem(idadeUsuario: Int): String {
     }
 }
 
-fun calcularTempoAposentaria(): String{
+fun analisarAposentaria(): String{
     val idadeUsuario = validarIdade()
     val sexoUsuario = validarSexo()
 
@@ -80,5 +80,5 @@ fun calcularTempoAposentaria(): String{
 }
 
 fun main () {
-    println(calcularTempoAposentaria())
+    println(analisarAposentaria())
 }
