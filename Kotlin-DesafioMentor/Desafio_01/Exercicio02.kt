@@ -22,7 +22,6 @@ fun validarSexo(): String?{
         "f", "fem", "feminino" -> "feminino"
         "m", "masc", "masculino" -> "masculino"
         else -> {
-            println("Informação inválida.")
             null
         }
     }
@@ -35,7 +34,6 @@ fun validarIdade(): Int? {
     return if (idadeDigitada != null && idadeDigitada >= 0) {
         idadeDigitada
     } else {
-        println("Informação inválida.")
         null
     }
 }
@@ -59,12 +57,8 @@ fun calcularTempoHomem(idadeUsuario: Int): String {
 }
 
 fun analisarAposentaria(): String{
-    val idadeUsuario = validarIdade()
-    val sexoUsuario = validarSexo()
-
-    if (idadeUsuario == null || sexoUsuario == null) {
-        return "Informações inválidas."
-    }
+    val idadeUsuario = validarIdade() ?: return "Informações inválidas."
+    val sexoUsuario = validarSexo() ?: return "Informações inválidas."
 
     println("=-".repeat(15))
     println("DADOS INFORMADOS")
@@ -75,10 +69,11 @@ fun analisarAposentaria(): String{
     return when (sexoUsuario) {
         "feminino" -> calcularTempoMulher(idadeUsuario)
         "masculino" -> calcularTempoHomem(idadeUsuario)
-        else -> "Informações inválidas."
+        else -> ""
     }
 }
 
+
 fun main () {
-    println(analisarAposentaria())
+     println(analisarAposentaria())
 }
