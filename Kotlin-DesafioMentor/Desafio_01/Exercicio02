@@ -26,3 +26,14 @@ fun validarSexo(): String{
         return "Informação inválida."
     }
 }
+
+fun validarIdade(): Int {
+    println("Insira sua idade: ")
+    var idadeUsuario = readLine().toString().trim().toInt()
+
+    if (idadeUsuario >= 0) {
+        return idadeUsuario
+    } else {
+        return -1
+    }
+}
