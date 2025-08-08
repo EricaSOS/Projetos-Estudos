@@ -1,1 +1,15 @@
-
+/*
+Exercicio 2 - Calculo de Aposentadoria
+Crie um programa que receba a idade e o sexo da pessoa e retorne quanto tempo falta para a
+aposentadoria.
+Regras:
+- Homens se aposentam com 65 anos.
+- Mulheres se aposentam com 62 anos.
+- O input de sexo pode aceitar: M, Masc, Masculino ou F, Fem, Feminino (nao sensivel a
+maiusculas/minusculas).
+- Nao permitir letras ou caracteres invalidos na idade.
+Exemplos de retorno:
+"Faltam 12 anos para voce se aposentar."
+"Voce ja esta apto a se aposentar."
+"Voce ja esta elegivel a aposentadoria faz 3 anos."
+*/
