@@ -49,6 +49,15 @@ fun calcularTempoMulher(idadeUsuario: Int): String {
     }
 }
 
+fun calcularTempoHomem(idadeUsuario: Int): String {
+    val limiteIdadeHomem = 65
+    return when (true) {
+        (idadeUsuario == limiteIdadeHomem) -> "Voce ja esta apto a se aposentar."
+        (idadeUsuario > limiteIdadeHomem) -> "Voce ja esta elegivel a aposentadoria faz ${idadeUsuario - limiteIdadeHomem} anos."
+        else -> "Faltam ${limiteIdadeHomem - idadeUsuario} anos para voce se aposentar."
+    }
+}
+
 
 fun calcularTempoAposentaria(): String{
     val idade = validarIdade()
