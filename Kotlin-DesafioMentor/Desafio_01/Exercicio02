@@ -37,3 +37,51 @@ fun validarIdade(): Int {
         return -1
     }
 }
+
+fun calcularTempoAposentaria(): String{
+    val idade = validarIdade()
+    val sexo = validarSexo()
+    val limiteIdadeHomem = 65
+    val limiteIdadeMulher = 62
+    var saldoIdade:Int
+    var mensagem:String
+
+    println("DADOS INFORMADOS")
+    println("Sexo: $sexo")
+    println("Idade: $idade")
+    println("=-".repeat(15))
+
+    when (sexo) {
+        "feminino" -> {
+            if (idade == limiteIdadeMulher) {
+                mensagem = "Voce ja esta apto a se aposentar."
+            } else if (idade > limiteIdadeMulher) {
+                saldoIdade = idade - limiteIdadeMulher
+                mensagem = "Voce ja esta elegivel a aposentadoria faz $saldoIdade anos."
+            } else {
+                saldoIdade = limiteIdadeMulher - idade
+                mensagem = "Faltam $saldoIdade anos para voce se aposentar."
+            }
+        }
+
+        "masculino" -> {
+            if (idade == limiteIdadeHomem) {
+                mensagem = "Voce ja esta apto a se aposentar."
+            } else if (idade > limiteIdadeHomem) {
+                saldoIdade = idade - limiteIdadeHomem
+                mensagem = "Voce ja esta elegivel a aposentadoria faz $saldoIdade anos."
+            } else {
+                saldoIdade = limiteIdadeHomem - idade
+                mensagem = "Faltam $saldoIdade anos para voce se aposentar."
+            }
+
+        }
+
+        else -> {
+            mensagem = "Informações inválidas."
+        }
+
+
+    }
+    return mensagem
+}
