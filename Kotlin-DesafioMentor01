@@ -27,7 +27,8 @@ fun contadorCedulas(){
     val valorUsuario = validarValorDigitado()
     var valorDecomposto = valorUsuario
     
-       val qtdeCedula100 = (valorDecomposto / 100)
+      if(valorDecomposto != null){
+        val qtdeCedula100 = (valorDecomposto / 100)
         valorDecomposto = valorDecomposto % 100
 
         val qtdeCedula50 = (valorDecomposto / 50)
@@ -48,14 +49,15 @@ fun contadorCedulas(){
         val qtdeCedula1 = (valorDecomposto / 1)
         valorDecomposto = valorDecomposto % 1
 
-    println(valorUsuario)
-    println("$qtdeCedula100 nota(s) de R$ 100,00")
-    println("$qtdeCedula50 nota(s) de R$ 50,00")
-    println("$qtdeCedula20 nota(s) de R$ 20,00")
-    println("$qtdeCedula10 nota(s) de R$ 10,00")
-    println("$qtdeCedula5 nota(s) de R$ 5,00")
-    println("$qtdeCedula2 nota(s) de R$ 2,00")
-    println("$qtdeCedula1 nota(s) de R$ 1,00")
+        println(valorUsuario)
+        println("$qtdeCedula100 nota(s) de R$ 100,00")
+        println("$qtdeCedula50 nota(s) de R$ 50,00")
+        println("$qtdeCedula20 nota(s) de R$ 20,00")
+        println("$qtdeCedula10 nota(s) de R$ 10,00")
+        println("$qtdeCedula5 nota(s) de R$ 5,00")
+        println("$qtdeCedula2 nota(s) de R$ 2,00")
+        println("$qtdeCedula1 nota(s) de R$ 1,00")
+    }
 }
 
 fun main (){
