@@ -58,53 +58,25 @@ fun calcularTempoHomem(idadeUsuario: Int): String {
     }
 }
 
-
 fun calcularTempoAposentaria(): String{
-    val idade = validarIdade()
-    val sexo = validarSexo()
-    val limiteIdadeHomem = 65
-    val limiteIdadeMulher = 62
-    var saldoIdade:Int
-    var mensagem:String
+    val idadeUsuario = validarIdade()
+    val sexoUsuario = validarSexo()
 
+    if (idadeUsuario == null || sexoUsuario == null) {
+        return "Informações inválidas."
+    }
+
+    println("=-".repeat(15))
     println("DADOS INFORMADOS")
-    println("Sexo: $sexo")
-    println("Idade: $idade")
+    println("Sexo: $sexoUsuario")
+    println("Idade: $idadeUsuario")
     println("=-".repeat(15))
 
-    when (sexo) {
-        "feminino" -> {
-            if (idade == limiteIdadeMulher) {
-                mensagem = "Voce ja esta apto a se aposentar."
-            } else if (idade > limiteIdadeMulher) {
-                saldoIdade = idade - limiteIdadeMulher
-                mensagem = "Voce ja esta elegivel a aposentadoria faz $saldoIdade anos."
-            } else {
-                saldoIdade = limiteIdadeMulher - idade
-                mensagem = "Faltam $saldoIdade anos para voce se aposentar."
-            }
-        }
-
-        "masculino" -> {
-            if (idade == limiteIdadeHomem) {
-                mensagem = "Voce ja esta apto a se aposentar."
-            } else if (idade > limiteIdadeHomem) {
-                saldoIdade = idade - limiteIdadeHomem
-                mensagem = "Voce ja esta elegivel a aposentadoria faz $saldoIdade anos."
-            } else {
-                saldoIdade = limiteIdadeHomem - idade
-                mensagem = "Faltam $saldoIdade anos para voce se aposentar."
-            }
-
-        }
-
-        else -> {
-            mensagem = "Informações inválidas."
-        }
-
-
+    return when (sexoUsuario) {
+        "feminino" -> calcularTempoMulher(idadeUsuario)
+        "masculino" -> calcularTempoHomem(idadeUsuario)
+        else -> "Informações inválidas."
     }
-    return mensagem
 }
 
 fun main () {
