@@ -68,18 +68,14 @@ fun calcularTempoAposentadoria(idadeUsuario: Int): String? {
 fun analisarAposentaria(): String{
     val idadeUsuario = validarIdade() ?: return "Informações inválidas."
     val sexoUsuario = validarSexo() ?: return "Informações inválidas."
+    val resultadoAnalise = calcularTempoAposentadoria(idadeUsuario) ?: "Não foi possível calcular."
 
     println("=-".repeat(15))
     println("DADOS INFORMADOS")
     println("Sexo: $sexoUsuario")
     println("Idade: $idadeUsuario")
     println("=-".repeat(15))
-
-    return when (sexoUsuario) {
-        "feminino" -> calcularTempoMulher(idadeUsuario)
-        "masculino" -> calcularTempoHomem(idadeUsuario)
-        else -> ""
-    }
+    println(resultadoAnalise)
 }
 
 
