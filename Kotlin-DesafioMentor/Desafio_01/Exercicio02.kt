@@ -38,30 +38,21 @@ fun validarIdade(): Int? {
     }
 }
 
-fun calcularTempoAposentadoria(idadeUsuario: Int): String? {
-    val sexoUsuario = validarSexo() ?: return "Informações inválidas."
-    val limiteIdadeMulher = 62
-    val limiteIdadeHomem = 65
-    return when (sexoUsuario) {
-        "feminino" -> {
-            if (idadeUsuario == limiteIdadeMulher) {
-                "Voce ja esta apto a se aposentar."
-            } else if (idadeUsuario > limiteIdadeMulher) {
-                "Voce ja esta elegivel a aposentadoria faz ${idadeUsuario - limiteIdadeMulher} anos."
-            } else {
-                "Faltam ${limiteIdadeMulher - idadeUsuario} anos para voce se aposentar."
-            }
-        }
-        "masculino" -> {
-            if (idadeUsuario == limiteIdadeHomem) {
-                "Voce ja esta apto a se aposentar."
-            } else if (idadeUsuario > limiteIdadeHomem) {
-                "Voce ja esta elegivel a aposentadoria faz ${idadeUsuario - limiteIdadeHomem} anos."
-            } else {
-                "Faltam ${limiteIdadeHomem - idadeUsuario} anos para voce se aposentar."
-            }
-        }
-        else -> null
+fun calcularTempoAposentadoria(idadeUsuario: Int): String{
+    val sexoUsuario = validarSexo()
+    var limiteIdade: Int
+
+    if (sexoUsuario == "feminino"){
+        limiteIdade = 62
+    } else {
+        limiteIdade = 65
+    }
+
+    return when (true) {
+        (idadeUsuario == limiteIdade) -> "Voce ja esta apto a se aposentar."
+        (idadeUsuario > limiteIdade) -> "Voce ja esta elegivel a aposentadoria faz ${idadeUsuario - limiteIdade} anos."
+        (idadeUsuario < limiteIdade) -> "Faltam ${limiteIdade - idadeUsuario} anos para voce se aposentar."
+        else -> "Não foi possível calcular."
     }
 }
 
