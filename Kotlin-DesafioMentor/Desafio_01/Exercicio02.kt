@@ -21,14 +21,12 @@ fun validarSexo(): String?{
     return when (sexoDigitado) {
         "f", "fem", "feminino" -> "feminino"
         "m", "masc", "masculino" -> "masculino"
-        else -> {
-            null
-        }
+        else -> null
     }
 }
 
 fun validarIdade(): Int? {
-    println("Insira sua idade: ")
+    print("Insira sua idade: ")
     var idadeDigitada = readLine().toString().trim().toIntOrNull()
 
     return if (idadeDigitada != null && idadeDigitada >= 0) {
@@ -38,14 +36,13 @@ fun validarIdade(): Int? {
     }
 }
 
-fun calcularTempoAposentadoria(idadeUsuario: Int): String{
-    val sexoUsuario = validarSexo()
+fun calcularTempoAposentadoria(sexoUsuario: String, idadeUsuario: Int): String{
     var limiteIdade: Int
 
     if (sexoUsuario == "feminino"){
         limiteIdade = 62
     } else {
-        limiteIdade = 65
+        limiteIdade = 65  
     }
 
     return when (true) {
@@ -56,20 +53,24 @@ fun calcularTempoAposentadoria(idadeUsuario: Int): String{
     }
 }
 
-fun analisarAposentaria(): String{
-    val idadeUsuario = validarIdade() ?: return "Informações inválidas."
-    val sexoUsuario = validarSexo() ?: return "Informações inválidas."
-    val resultadoAnalise = calcularTempoAposentadoria(idadeUsuario) ?: "Não foi possível calcular."
+fun imprimirResultadoAposentaria(): String{
+    val sexoUsuario = validarSexo() ?: return "Informações inválidas (sexo)."
+    val idadeUsuario = validarIdade() ?: return "Informações inválidas (idade)."
+    val resultadoAnalise = calcularTempoAposentadoria(sexoUsuario, idadeUsuario)
 
-    println("=-".repeat(15))
-    println("DADOS INFORMADOS")
-    println("Sexo: $sexoUsuario")
-    println("Idade: $idadeUsuario")
-    println("=-".repeat(15))
-    println(resultadoAnalise)
+    return """
+        ${"=-".repeat(15)}
+        DADOS INFORMADOS
+        Sexo: $sexoUsuario
+        Idade: $idadeUsuario
+        ${"=-".repeat(15)}
+        RESULTADO
+        $resultadoAnalise
+    """.trimIndent()
+
 }
 
 
 fun main () {
-     println(analisarAposentaria())
+     println(imprimirResultadoAposentaria())
 }
