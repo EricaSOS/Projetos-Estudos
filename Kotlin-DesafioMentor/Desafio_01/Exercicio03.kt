@@ -7,7 +7,7 @@ Digite o segundo numero: 2
 Digite a operacao (+, -, *, /): *
 Resultado: 10
 */
-fun lerDadosDigitados() {
+fun lerDadosDigitados(): String {
     println("Digite o primeiro número: ")
     val primeiroNumero: Double = readLine().toString().trim().toDouble()
 
@@ -18,7 +18,7 @@ fun lerDadosDigitados() {
     val operador: String = readLine().toString().trim()
 
     val resultado = calcular(primeiroNumero, segundoNumero, operador)
-    println("Resultado: $resultado")
+    return resultado
 }
 
 fun calcular(primeiroNumero: Double, segundoNumero: Double, operador:String): String{
@@ -37,9 +37,11 @@ fun calcular(primeiroNumero: Double, segundoNumero: Double, operador:String): St
     }
 }
 
-fun main(){
-    lerDadosDigitados()
+fun imprimirResultado() {
+    val resultado = lerDadosDigitados()
+    println("Resultado: $resultado")
 }
-fun main(){ 
-  imprimirResultado() 
+
+fun main(){
+    imprimirResultado()
 }
