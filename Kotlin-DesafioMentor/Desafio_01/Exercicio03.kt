@@ -9,13 +9,13 @@ Resultado: 10
 */
 fun lerDadosDigitados(): String {
     println("Digite o primeiro número: ")
-    val primeiroNumero: Double = readLine().toString().trim().toDouble()
+    val primeiroNumero: Double = readln().trim().toDouble()
 
     println("Digite o segundo número: ")
-    val segundoNumero: Double = readLine().toString().trim().toDouble()
+    val segundoNumero: Double = readln().trim().toDouble()
 
     println("Digite a operação (+, -, *, /): ")
-    val operador: String = readLine().toString().trim()
+    val operador: String = readln().trim()
 
     val resultado = calcular(primeiroNumero, segundoNumero, operador)
     return resultado
